@@ -340,5 +340,9 @@ h2 span {
 	.auto__content , .deral__content , .section_form__content , .footer {
 		padding: 10px;
 	}
+	.form__container {
+		flex-direction: column;
+	}
+	.form__container input {max-width: 100%;}
  }
 
