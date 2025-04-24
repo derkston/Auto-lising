@@ -14,11 +14,11 @@
           <div class="header__wrapper">
             <h1>Поиск выгодного лизинга за 5 минут</h1>
             <p>
-              Онлайн поиск и сравнение лизинговых компаний в один клик, <br />
+              Онлайн-поиск и сравнение лизинговых компаний в один клик, <br />
               лучшие ставки и скидки при подаче заявки онлайн
             </p>
             <span>40+ лизинговых компаний</span>
-            <button class="button">Рассчитать лизинг</button>
+            <a href="#button" class="button">Рассчитать лизинг</a>
             <ul class="list">
               <li class="list__item">
                 <h3>Решение за 24 часа</h3>
@@ -106,19 +106,35 @@
         <div class="container">
           <div class="section_form__content">
             <h2>Остались вопросы - <span>спрашивайте ! </span></h2>
-            <form action="#" method="post" class="form">
+            <form action="#" method="POST" id="form" class="form">
+              <input
+                type="hidden"
+                name="admin_email[]"
+                value="stepaarkadevich2019@gmail.com"
+              />
+              <input type="hidden" name="form_subject" value="Заявка с сайта" />
               <div class="form__container">
                 <select class="list__item" name="auto" id="form-auto">
-                  <option value="light_car">Леговой автомобиль</option>
-                  <option value="light_commercial_car">
+                  <option name="light_car" value=" Леговой автомобиль">
+                    Леговой автомобиль
+                  </option>
+                  <option
+                    name="light_commercial_car"
+                    value="Легко-коммерческий автомобиль"
+                  >
                     Легко-коммерческий автомобиль
                   </option>
-                  <option value="cargo__truck">Грузовой автомобиль</option>
+                  <option name="cargo__truck" value="Грузовой автомобиль">
+                    Грузовой автомобиль
+                  </option>
                 </select>
                 <input
                   class="list__item"
                   type="text"
                   class="city"
+                  name="Город"
+                  required
+                  id="city"
                   placeholder="Ваш город"
                 />
               </div>
@@ -126,12 +142,34 @@
                 <input
                   class="list__item"
                   type="name"
+                  name="Имя"
+                  id="name"
+                  data-validate-field="name"
                   placeholder="Как вас зовут ?"
                   class="name"
+                  minlength="3"
                 />
-                <input class="list__item" ="tel" placeholder="Номер телефона" />
-                <button type="submit" class="button">Отправить</button>
+                <input
+                  class="list__item"
+                  class="tel"
+                  name="Телефон"
+                  type="number"
+                  data-validate-field="tel"
+                  inputmode="text"
+                  id="tel"
+                />
+
+                <button id="button" type="submit" class="button">
+                  Отправить
+                </button>
               </div>
+              <label class="checkbox">
+                <input required type="checkbox" />
+                Отправляя заявку, я
+                <a href="СОГЛАШЕНИЕ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ_2.docx">
+                  соглашаюсь с условиями обработки персональных данных</a
+                >
+              </label>
             </form>
           </div>
         </div>
@@ -176,6 +214,9 @@
         </div>
       </div>
     </footer>
-    <script src="scripts/js.js" defer></script>
+
+    <script src="scripts/just-validate.min.js"></script>
+    <script src="scripts/inputmask.min.js"></script>
+    <script src="scripts/js.js"></script>
   </body>
 </html>
